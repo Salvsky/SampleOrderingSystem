@@ -16,13 +16,13 @@ if($sqlDelete == true){
     // Query Executed successfully and Admin deleted
     // echo ("<script>alert('Admin Deleted Successfully')</script>");
     // Create a Session Variable to display message
-    $_SESSION['delete'] = "Admin Deleted Successfully";
+    $_SESSION['delete'] = "<div class='success'>Admin Deleted Successfully.</div>";
     // Redirect to Manage Admin Page
     header('location:'.SITEURL.'admin/manage-admin.php');
 }else{
     // Failed to Delete Admin
     // echo ("<script>alert('Failed to delete Admin')</script>");
-    $_SESSION['delete'] = "Failed to Delete Admin, Try again later";
+    $_SESSION['delete'] = "<div class='#'>Failed to Delete Admin, Try again later</div>";
     header('location:'.SITEURL.'admin/manage-admin.php');
 }
 

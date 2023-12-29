@@ -19,6 +19,17 @@
     float: none;
     clear: both;
  }
+
+ .success{
+    color: #2ed573;
+ }
+
+ .error{
+    color:#ff6b81;
+ }
+
+
+
 /* CSS for Menu */
 .menu{
     border-bottom: 1px solid rgb(197, 184, 184);

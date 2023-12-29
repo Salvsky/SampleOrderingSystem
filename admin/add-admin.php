@@ -78,14 +78,14 @@ include('partials/footer.php');
             // Data inserted
             // echo "Data INSERTED";
             // Create a Session variable to Display Message
-            $_SESSION['add'] = "Admin Added Successfully";
+            $_SESSION['add'] = "<div class='success'>Admin Added Successfully.</div>";
             // Redirect page Manage Admin
             header("location:".SITEURL.'admin/manage-admin.php');
         }else{
             //Data NOT inserted
             // echo "FAILED to Insert Data";
             // Create a Session variable to Display Message
-            $_SESSION['add'] = "Failed to Add Admin";
+            $_SESSION['add'] = "<div class='erro'>Failed to Add Admin.</div>";
             // Redirect page Add Admin
             header("location:".SITEURL.'admin/manage-admin.php');
         }
