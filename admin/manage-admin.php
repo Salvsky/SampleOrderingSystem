@@ -13,6 +13,13 @@ include('partials/menu.php');
                     echo $_SESSION['add']; // Displaying Session Message
                     unset($_SESSION['add']); // Removing Session Message
                 }
+
+                if(isset($_SESSION['delete'])){
+                    echo $_SESSION['delete'];
+                    unset($_SESSION['delete']);
+                }
+
+
             ?>
             <br><br><br>
             <a href="add-admin.php" class="btn-primary">Add Admin</a>
@@ -29,7 +36,7 @@ include('partials/menu.php');
                 <?php
                     // Query to Get all admin
                     $sql = "SELECT * FROM tbl_admin";
-                    // executy the query
+                    // executing the query
                     $res = mysqli_query($conn, $sql);
 
                     // Check whether the Query is executed or Not
@@ -57,7 +64,7 @@ include('partials/menu.php');
                                     <td><?php echo $username?></td>
                                     <td>
                                         <a href="#" class="btn-secondary">Update Admin</a>
-                                        <a href="#" class="btn-danger">Delete Admin</a>
+                                        <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>" class="btn-danger">Delete Admin</a>
                                     </td>
                                 </tr>
 
