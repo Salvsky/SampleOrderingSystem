@@ -2,6 +2,18 @@
     include('partials/menu.php');
 ?>
 
+<br><br>
+    <?php 
+        if (isset($_SESSION['login-status'])){
+            echo ($_SESSION['login-status']);
+            echo ('Welcome to the admin panel ' .$_SESSION['user']);
+            unset($_SESSION['login-status']);
+        }
+    
+    
+    ?>
+<br> <br>
+
     <!-- Main Content Section Starts -->
     <div class="main-content">
         <div class="wrapper">

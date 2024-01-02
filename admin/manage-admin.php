@@ -38,9 +38,8 @@ include('partials/menu.php');
                     echo $_SESSION['password-change'];
                     unset($_SESSION['password-change']);
                 }
-
-
             ?>
+
             <br><br><br>
             <a href="add-admin.php" class="btn-primary">Add Admin</a>
             <br><br>
@@ -75,8 +74,8 @@ include('partials/menu.php');
                                 $id = $rows['id'];
                                 $full_name = $rows['full_name'];
                                 $username = $rows['username'];
-
                                 // Display the values in our table
+                                
                                 ?>
                                 <tr>
                                     <td><?php echo $id ?> </td>

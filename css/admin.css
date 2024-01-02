@@ -134,3 +134,13 @@ table tr td{
     color: white;
  }
  /* End of CSS for footer section */
+
+
+ /* CSS for the Login Page */
+
+ .login{
+    border: 1px solid grey;
+    width: 20%;
+    margin: 10% auto;
+    padding: 2%;
+ }

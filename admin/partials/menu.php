@@ -1,5 +1,6 @@
 <?php 
 include('../config/constants.php');
+include('login-validation.php');
 ?>
 
 
@@ -21,6 +22,7 @@ include('../config/constants.php');
                 <li><a href="manage-category.php">Category</a></li>
                 <li><a href="manage-food.php">Food</a></li>
                 <li><a href="manage-order.php">Order</a></li>
+                <li><a href="logout.php">LOG OUT</a></li>
             </ul>
         </div>
     </div>

@@ -73,43 +73,38 @@ include('partials/menu.php');
                 //check whether the data is available or not
                 $count = mysqli_num_rows($sqlSelect);
                 
-                if($count == 1){
-                    // user exist and password can be change
-                    // echo ("<script>alert('User Found')</script>");
+                                    if($count == 1){
+                                        // user exist and password can be change
+                                        // echo ("<script>alert('User Found')</script>");
+                                        // Check whether the new password and confirm password match or not
+                                                if($new_password == $confirm_password){
+                                                    // update the password
+                                                    // echo ("<script>alert('Nays pareho')</script>");
+                                                    $queryUpdate = "UPDATE tbl_admin SET
+                                                        password = '$new_password' WHERE id = $id";
+                                                    $sqlUpdate = mysqli_query($conn, $queryUpdate);
 
-                    // Check whether the new password and confirm password match or not
-                    if($new_password == $confirm_password){
-                        // update the password
-                        // echo ("<script>alert('Nays pareho')</script>");
-                        $queryUpdate = "UPDATE tbl_admin SET
-                            password = '$new_password' WHERE id = $id";
+                                                                        if($sqlUpdate == true){
+                                                                        $_SESSION['password-change'] = "<div class='success'> Password was changed successfully</div>";
+                                                                        header('location:'.SITEURL.'admin/manage-admin.php');
+                                                                        }else{
+                                                                            $_SESSION['password-change'] = "<div class='error'>Password change Unsuccessful</div>";
+                                                                            header('location:'.SITEURL.'admin/manage-admin.php');
+                                                                                }
 
-                        $sqlUpdate = mysqli_query($conn, $queryUpdate);
+                                                }else{
+                                                // redirect to manage admin page with error message
+                                                    $_SESSION['password-error'] = "<div class='error'>Password did not match</div>";
+                                                    header('location:'.SITEURL.'admin/manage-admin.php');
+                                                }
 
-                        if($sqlUpdate == true){
-                            $_SESSION['password-change'] = "<div class='success'> Password was changed successfully</div>";
-                            header('location:'.SITEURL.'admin/manage-admin.php');
-                        }else{
-                            $_SESSION['password-change'] = "<div class='error'>Password change Unsuccessful</div>";
-                            header('location:'.SITEURL.'admin/manage-admin.php');
-                        }
-
-                    }else{
-                        // redirect to manage admin page with error message
-                        $_SESSION['password-error'] = "<div class='error'>Password did not match</div>";
-                        header('location:'.SITEURL.'admin/manage-admin.php');
-                    }
-
-                }else{
-                    // user does not exist
-                    // echo ("<script>alert('User Not Found')</script>");
-                    $_SESSION['user-status'] = "<div class='error'>User Not Found</div>";
-                    header('location:'.SITEURL.'admin/manage-admin.php');
+                                    }else{
+                                        // user does not exist
+                                        // echo ("<script>alert('User Not Found')</script>");
+                                        $_SESSION['user-status'] = "<div class='error'>User Not Found</div>";
+                                        header('location:'.SITEURL.'admin/manage-admin.php');
                 }
             }
-        // 3. Check whether the new password and confirm password match or not
-
-        // 4. Change password if all above is true
     }
 
 ?>
