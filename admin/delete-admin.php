@@ -22,7 +22,7 @@ if($sqlDelete == true){
 }else{
     // Failed to Delete Admin
     // echo ("<script>alert('Failed to delete Admin')</script>");
-    $_SESSION['delete'] = "<div class='#'>Failed to Delete Admin, Try again later</div>";
+    $_SESSION['delete'] = "<div class='error'>Failed to Delete Admin, Try again later</div>";
     header('location:'.SITEURL.'admin/manage-admin.php');
 }
 
