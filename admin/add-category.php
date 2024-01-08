@@ -88,8 +88,13 @@ include('partials/menu.php');
 
                         if(isset($_FILES['FORMImage']['name'])){
                             // upload image
-                            // To upload image we need image name, source path adn destination path
+                            // To upload image we need image name, source path and destination path
                             $image_name = $_FILES['FORMImage']['name'];
+                            
+
+                            // Upload the image only if the image is selected
+                            if($image_name != ""){
+
                             
                             // Auto Rename our image
                             // Get the extension of our image (jpg, png, gif, etc)
@@ -116,7 +121,7 @@ include('partials/menu.php');
                                 // Stop the process
                                 die();
                             }
-
+                        }
                         }else{
                             // don't upload image and set the image_name value as blank
                             $image_name = "";
